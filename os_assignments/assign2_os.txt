@@ -1,0 +1,27 @@
+Assignment 2
+
+
+Linker:
+The linker’s job is to take all the pieces of your program, the code you wrote in different files and combine them into one executable. It makes sure that any function or variable used in one file that’s defined in another file works. Without the linker, your program wouldn’t know how all its pieces fit together.
+
+Loader:
+The loader is what gets your program ready to run. When you start your program, the loader puts it into memory, sets up space for variables, the stack, and heap, and loads any libraries it needs. Think of it as the stage manager that makes sure everything is in place before the program begins running.
+
+Ex1:
+In this program, we used the fork() system call to create a new process. After the fork, two processes run the same code, the parent process and the child process. fork() returns 0 to the child process and the child's PID to the parent process. This allows the program to differentiate between the two. Each process prints its own PID using getpid(). If fork() fails, the program prints an error message. 
+
+Ex2:
+The command sleep 300 & starts a process that waits for 300 seconds and continues running in the background because of the &. The jobs command shows active background jobs.
+
+Ex3:
+I used ps aux | grep sleep to identify the PID of the background sleep process. Then I used kill <PID> to stop the process. I ran the ps command again to confirm that the sleep process was terminated.
+Ex4:
+This exercise shows how to temporarily stop and resume a running process. First, we started a process (sleep 300) in the background and identified its PID. Using “ kill -STOP <PID>”, we sent a STOP signal to pause the process. The process remained in memory but did not execute until we sent a CONT signal with “kill -CONT <PID>” to resume it. This shows how Linux allows processes to be suspended and resumed without terminating them.
+
+Ex5:
+In this example, file1.c contains the function hello() and file2.c calls it. When we compile both files together, the linker resolves the call from file2.c to the code in file1.c. Modifying file1.c and recompiling shows that the executable updates to reflect the new code.
+
+Ex6:
+The Loader is responsible for loading the executable into memory, linking it with the shared libraries at runtime, and setting up the program’s execution environment. 
+
+
